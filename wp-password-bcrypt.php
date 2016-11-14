@@ -69,7 +69,7 @@ function wp_set_password($password, $userId)
 
     $hash = wp_hash_password($password);
 
-    $wpdb->update($wpdb->users, ['user_pass' => $hash, 'user_activation_key' => ''], ['ID' => $userId]);
+    $wpdb->update($wpdb->users, array('user_pass' => $hash, 'user_activation_key' => ''), array('ID' => $userId));
     wp_cache_delete($userId, 'users');
 
     return $hash;
